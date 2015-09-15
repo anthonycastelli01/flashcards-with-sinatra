@@ -1,0 +1,13 @@
+<link href="/css/signin.css" rel="stylesheet">
+
+<div class="container">
+  <form class="form-signin" method="post" action="/users/<%= @user.id %>/decks/create">
+    <h2 class="form-signin-heading">Please Define Your Deck</h2>
+
+    <label for="name" class="sr-only">Name</label>
+    <input type="text" name="name" class="form-control" placeholder="Name" required autofocus>
+    <br>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Create Deck</button>
+  </form>
+</div>
