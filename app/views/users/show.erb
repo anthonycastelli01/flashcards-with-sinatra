@@ -13,9 +13,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="/">Dashboard</a></li>
+        <li><a href="/users/<%= session[:user_id] %>/edit">Settings</a></li>
         <li><a href="#">Help</a></li>
         <% if current_user? %>
           <li><a href="/logout">Logout</a></li>
@@ -36,10 +35,10 @@
       </ul>
       <ul class="nav nav-sidebar">
         <li>
-          <a href="/users/<%= @user.id %>/decks/new">+ New Deck</a>
+          <a href="/decks/new">+ New Deck</a>
         </li>
         <% @user.decks.each do |deck|%>
-          <li><a href="/users/<%= @user.id %>/decks/<%= deck.id %>"><%= deck.name %></a></li>
+          <li><a href="/decks/<%= deck.id %>"><%= deck.name %></a></li>
         <% end %>
       </ul>
     </div>

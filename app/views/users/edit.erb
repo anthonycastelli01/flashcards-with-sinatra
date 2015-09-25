@@ -1,0 +1,23 @@
+<link href="/css/signin.css" rel="stylesheet">
+
+<div class="container">
+  <form class="form-signin" method="post" action="/users/<%= session[:user_id] %>">
+    <input type='hidden' name='_method' value='put'>
+
+    <h2 class="form-signin-heading">Update Profile</h2>
+
+    <label for="firstname" class="sr-only">First Name</label>
+    <input type="text" name="first_name" class="form-control top-field" placeholder="First Name" value="<%= @user.first_name %>" required autofocus>
+
+    <label for="lastname" class="sr-only">Last Name</label>
+    <input type="text" name="last_name" class="form-control middle-field" value="<%= @user.last_name %>" placeholder="Last Name">
+
+    <label for="inputEmail" class="sr-only">Email Address</label>
+    <input type="email" name="email" class="form-control middle-field" value="<%= @user.email %>" placeholder="Email Address">
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" name="password" class="form-control bottom-field" placeholder="Password" value="<%= @user.password %>" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  </form>
+</div>
