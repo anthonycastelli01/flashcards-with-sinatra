@@ -1,5 +1,5 @@
-post '/users/:user_id/decks/:deck_id/cards/create' do
-  user = User.find_by_id(params[:user_id])
+post '/decks/:deck_id/cards' do
+  user = User.find_by_id(session[:user_id])
   deck = Deck.find_by_id(params[:deck_id] )
   card = Card.new(term: params[:term], definition: params[:definition])
 
@@ -9,8 +9,8 @@ post '/users/:user_id/decks/:deck_id/cards/create' do
   puts "THIS IS THE DEFINITION #{card.definition}"
 
   if card.save
-    redirect "/users/#{user.id}/decks/#{deck.id}"
+    redirect "/decks/#{deck.id}"
   else
-    redirect "/users/#{user.id}/decks/#{deck.id}"
+    redirect "/decks/#{deck.id}"
   end
 end

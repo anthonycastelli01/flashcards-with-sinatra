@@ -1,20 +1,15 @@
 get '/users/new' do
-  erb :signup
+  erb :'users/new'
 end
 
-post '/users/create' do
+post '/users' do
   @user = User.new(params)
   if @user.save
     session[:user_id] = @user.id
-    redirect "/users/#{@user.id}"
+    redirect "/"
   else
     redirect "/users/new"
   end
-end
-
-get '/users/:id' do
-  @user = User.find_by_id(params[:id])
-  erb :profile
 end
 
 post '/sessions/create' do
@@ -24,7 +19,7 @@ post '/sessions/create' do
     redirect '/'
   elsif user.password == params[:password]
     session[:user_id] = user.id
-    redirect "/users/#{user.id}"
+    redirect "/"
   else
     redirect '/'
   end

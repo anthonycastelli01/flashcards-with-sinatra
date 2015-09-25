@@ -1,5 +1,5 @@
 <h2><%= @deck.name %></h2>
-<form method="post" action="/users/<%= @user.id %>/decks/<%= @deck.id %>/cards/create">
+<form method="post" action="/decks/<%= @deck.id %>/cards">
   <h3>Define New Card:</h3>
   <label for="term">Card Name: </label>
   <input type="text" name="term">
